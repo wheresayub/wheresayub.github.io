@@ -526,3 +526,20 @@
       const dir = +b.dataset.dir;
       idx = (idx + dir + 3) % 3; // 3 slides
       updateSlide();
+    }));
+
+    // Contact form (validation + fake submit)
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      // 👉 Pour envoyer vraiment : remplace l'URL par ton endpoint Formspree
+      // fetch('https://formspree.io/f/xxxxxx', { method:'POST', body: new FormData(form) })
+      //   .then(() => status.textContent = 'Merci ! Message envoyé ✅')
+      //   .catch(() => status.textContent = 'Oups, réessaie plus tard.');
+      status.textContent = 'Simulation: valide ✅ (branche un service pour envoyer vraiment)';
+    });
+  </script>
+</body>
+</html>
